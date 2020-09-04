@@ -1,0 +1,98 @@
+.container {
+    color: #999;
+    background: #f3f3f3;
+}
+
+form {
+    display: grid;
+    padding: 1em;
+    background: white;
+    border: 1px solid #c1c1c1;
+    margin: 2rem auto 0 auto;
+    max-width: 600px;
+    padding: 1em;
+}
+
+
+/*form h2 {
+    border-bottom: 3px solid #5cd3b4;
+    bottom: 50%;
+    text-align: center;
+}*/
+
+form input {
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+form button {
+    background: #47d6b1;
+    padding: 0.7em;
+    width: 100%;
+    border: 0;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    grid-row: 6/6/2/6;
+}
+
+form .cancelbtn {
+    color: white;
+    background-color: #DC143C;
+}
+
+
+/*form button:hover {
+    // background: gold;
+}*/
+
+label {
+    padding: 0.5em 0.5em 0.5em 0;
+    color: black;
+}
+
+.lblError {
+    color: red;
+}
+
+input {
+    padding: 0.7em;
+    margin-bottom: 0.5rem;
+    display: grid;
+    grid-column: 1/4;
+}
+
+input:focus {
+    outline: 1px solid #47d6b1;
+}
+
+.accountExist {
+    display: grid;
+    text-align: center;
+}
+
+form button:disabled {
+    background: #dddddd;
+    cursor: no-drop;
+}
+
+@media (min-width: 400px) {
+    form {
+        grid-template-columns: 120px 1fr;
+        grid-gap: 16px;
+    }
+    label {
+        text-align: right;
+        grid-column: 1 / 2;
+    }
+    .formLabel {
+        grid-column: 2/4;
+        color: black;
+        font-weight: 600;
+    }
+}
+
+.accountExist {
+    display: grid;
+    text-align: center;
+}

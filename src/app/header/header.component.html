@@ -1,0 +1,26 @@
+<!--  <div class="header">
+    <a href="#default" class="logo">Electronics Product Management System</a>
+    <div class="header-right">
+        <a [routerLink]="['/login']" class="btn btn-primary">Login</a>
+        <a [routerLink]="['/signup']" class="btn btn-primary">Sign up</a>
+
+    </div>
+</div>  -->
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h1></h1>
+
+        <div *ngIf="isAuthenticated; then doSomething; else doSomethingElse;"></div>
+        <ng-template #doSomething>
+            <p>You logged in <em>{{user.email}}!</em></p>
+            <button class="btn btn-primary" (click)="logOut()">Log out</button>
+        </ng-template>
+        <ng-template #doSomethingElse>
+            <a [routerLink]="['/login']" class="btn btn-primary">Login</a>
+            <a [routerLink]="['/signup']" class="btn btn-primary">Sign up</a>
+        </ng-template>
+    </div>
+</div>

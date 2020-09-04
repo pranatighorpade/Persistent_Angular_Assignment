@@ -1,0 +1,48 @@
+<div class="container">
+
+    <form class="form" [formGroup]="signupForm" (ngSubmit)="submitForm()" novalidate>
+
+        <h2 class="formLabel">Create your account</h2>
+
+        <label for="username">Name: <span class="lblError">*</span></label>
+        <div class="controls">
+            <input type="text" id="username" placeholder="Name" class="form-control" formControlName="name">
+            <p class="lblError" *ngIf="signupForm.get('name').hasError('required')
+        && !signupForm.get('name').pristine">
+                Name is Required
+            </p>
+        </div>
+        <label for="email">E-mail: <span class="lblError">*</span></label>
+        <div class="controls">
+            <input type="text" id="username" placeholder="Email" class="form-control" formControlName="email">
+            <p class="lblError" *ngIf="signupForm.get('email').hasError('required') && !signupForm.get('email').pristine">
+                Please provide your E-mail
+            </p>
+            <p class="lblError" *ngIf="signupForm.get('email').hasError('email') && !signupForm.get('email').pristine">E-mail is Invalid</p>
+        </div>
+        <label for="phone">Phone <span class="lblError">*</span></label>
+        <div class="controls">
+            <input type="tel" id="phone" placeholder="Phone" class="form-control" formControlName="phone">
+            <p class="lblError" *ngIf="signupForm.get('phone').hasError('required') && !signupForm.get('phone').pristine">
+                Phone is Required
+            </p>
+        </div>
+
+        <label for="password">Password: <span class="lblError">*</span></label>
+        <div class="controls">
+            <input type="password" id="password" placeholder="Password" class="form-control" formControlName="password">
+            <p class="lblError" *ngIf="signupForm.get('password').hasError('required') && !signupForm.get('password').pristine">
+                Password is Required
+            </p>
+        </div>
+
+        <label><button class="cancelbtn" [routerLink]="['/']" >Cancel</button></label>
+        <button type="submit" [disabled]='signupForm.invalid'> Sign Up
+        </button>
+
+    </form>
+
+    <div class="accountExist">
+        <h3>Already have an account? <a [routerLink]="['/login']">Login here</a></h3>
+    </div>
+</div>
