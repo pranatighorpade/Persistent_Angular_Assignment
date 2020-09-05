@@ -20,7 +20,7 @@ export interface State {
           ...state,
           isAuthenticated: true,
           user: {
-            token: action.payload.token,
+            //token: action.payload.token,
             email: action.payload.email
           //  password:action.payload.password
             
@@ -31,7 +31,7 @@ export interface State {
       case AuthActionTypes.LOGIN_FAILURE: {
         return {
           ...state,
-          errorMessage: 'Incorrect email and/or password.'
+          errorMessage: 'Incorrect email or password.'
         };
       }
       case AuthActionTypes.SIGNUP_SUCCESS: {
@@ -39,7 +39,7 @@ export interface State {
           ...state,
           isAuthenticated: true,
           user: {
-            token: action.payload.token,
+           // token: action.payload.token,
             email: action.payload.email
           },
           errorMessage: null

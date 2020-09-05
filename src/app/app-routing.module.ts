@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { DetailsComponent } from './details/details.component';
-import { CreateProductComponent } from './create-product/create-product.component';
-import { UpdateProductComponent } from './update-product/update-product.component';
+import {ProductViewComponent } from './products/product-view/product-view.component';
+import {ProductCreateComponent } from './products/product-create/product-create.component';
+import {ProductEditComponent } from './products/product-edit/product-edit.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/product',
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    component: HomeComponent,
+    path: 'product',
+    component: ProductListComponent,
   },
   {
     path: 'login',
@@ -26,9 +26,9 @@ const routes: Routes = [
     component: SignupComponent,
   },
   
-  { path: 'details/:productId', component: DetailsComponent },
-  { path: 'create', component: CreateProductComponent },
-  { path: 'update/:productId', component: UpdateProductComponent } ,
+  { path: 'product/:productId/view', component: ProductViewComponent },
+  { path: 'product/create', component: ProductCreateComponent },
+  { path: 'product/:productId/edit', component: ProductEditComponent } ,
       // otherwise redirect to home
    { path: '**', redirectTo: '' }
    

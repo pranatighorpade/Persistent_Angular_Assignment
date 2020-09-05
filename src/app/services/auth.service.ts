@@ -1,27 +1,49 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Subject, Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subject, Observable, throwError } from 'rxjs';
 import {User} from '../models/user';
+import {catchError} from 'rxjs/operators';
+import { Product } from '../products/models/product';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-    private BASE_URL = 'http://localhost:3000/';
+
+  readonly BASE_URL = 'http://localhost:3000/';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
 
   constructor(private http: HttpClient) {}
 
-  getToken(): string {
-    return localStorage.getItem('token');
-  }
-
-  logIn(payload:any): Observable<any> {
+   logIn(payload:any): Observable<any> {
      const url = encodeURI('username?email=' + payload.email + '&password=' + payload.password); 
-     return this.http.get<User>(this.BASE_URL + url);
+     return this.http.get<User>(this.BASE_URL + url,this.httpOptions).pipe(
+      catchError(this.errorHandler)
+    )
   } 
 
-   signUp(email: string, password: string): Observable<User> {
+   signUp(email: string, password: string): Observable<any> {
     const url = `${this.BASE_URL}username`;
-    return this.http.post<User>(url, {email, password});
+    return this.http.post<User>(url, {email, password},this.httpOptions).pipe(
+      catchError(this.errorHandler)
+    );
   }
+
+  errorHandler(error) {
+    let errorMessage = '';
+    if(error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+ }
 }

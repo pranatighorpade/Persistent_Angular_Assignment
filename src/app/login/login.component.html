@@ -3,11 +3,12 @@
     <form class="form" [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
 
         <h2 class="formLabel">Login</h2>
-        <div *ngIf="errorMessage">
-            <div class="alert alert-danger" role="alert">
-                {{errorMessage}}
-            </div>
+        <label></label>
+
+        <div *ngIf="errorMessage" class="errMsg">
+            {{errorMessage}}
         </div>
+
         <label for="email">E-mail: <span class="lblError">*</span></label>
         <div class="controls">
             <input type="text" id="username" placeholder="Email" class="form-control" formControlName="email">

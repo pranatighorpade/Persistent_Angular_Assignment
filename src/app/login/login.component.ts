@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     this.getState.subscribe((state) => {
       this.errorMessage = state.errorMessage;
     });
+    this.errorMessage=null;
 }
 
 submitForm(): void{
