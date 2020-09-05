@@ -14,7 +14,6 @@ import { StoreModule } from '@ngrx/store';
 import { ProductModule } from '../app/products/product.module';
 import { ProductEffects } from './products/store/effects/product.effects';
 import { HeaderComponent } from './header/header.component';
-import { ThemeService } from './theme/theme.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,7 @@ import { ThemeService } from './theme/theme.service';
     LoginComponent,
     SignupComponent,
     HeaderComponent,
- ],
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,12 +30,10 @@ import { ThemeService } from './theme/theme.service';
     ProductModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {}),
-    EffectsModule.forRoot([AuthEffects,ProductEffects])
+    EffectsModule.forRoot([AuthEffects, ProductEffects]),
   ],
 
-  providers: [AuthService,ThemeService],
-  bootstrap: [AppComponent]
-  
+  providers: [AuthService],
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}

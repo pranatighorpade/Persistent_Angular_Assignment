@@ -36,13 +36,13 @@
             </p>
         </div>
 
-        <label><button class="cancelbtn" [routerLink]="['/']" >Cancel</button></label>
-        <button type="submit" [disabled]='signupForm.invalid'> Sign Up
+        <label><button class="cancelbtn" [routerLink]="['/']" area-label="Cancel" tabindex="0">Cancel</button></label>
+        <button type="submit" [disabled]='signupForm.invalid' area-label="Sign UP" tabindex="0"> Sign Up
         </button>
 
     </form>
 
     <div class="accountExist">
-        <h3>Already have an account? <a [routerLink]="['/login']">Login here</a></h3>
+        <h3>Already have an account? <a [routerLink]="['/login']" tabindex="0">Login here</a></h3>
     </div>
 </div>

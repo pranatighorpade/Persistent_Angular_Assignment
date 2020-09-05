@@ -1,42 +1,42 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, Observable, throwError } from 'rxjs';
-import {User} from '../models/user';
-import {catchError} from 'rxjs/operators';
+import { User } from '../models/user';
+import { catchError } from 'rxjs/operators';
 import { Product } from '../products/models/product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-
   readonly BASE_URL = 'http://localhost:3000/';
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  }
+      'Content-Type': 'application/json',
+    }),
+  };
 
   constructor(private http: HttpClient) {}
 
-   logIn(payload:any): Observable<any> {
-     const url = encodeURI('username?email=' + payload.email + '&password=' + payload.password); 
-     return this.http.get<User>(this.BASE_URL + url,this.httpOptions).pipe(
-      catchError(this.errorHandler)
-    )
-  } 
-
-   signUp(email: string, password: string): Observable<any> {
-    const url = `${this.BASE_URL}username`;
-    return this.http.post<User>(url, {email, password},this.httpOptions).pipe(
-      catchError(this.errorHandler)
+  logIn(payload: any): Observable<any> {
+    const url = encodeURI(
+      'username?email=' + payload.email + '&password=' + payload.password
     );
+    return this.http
+      .get<User>(this.BASE_URL + url, this.httpOptions)
+      .pipe(catchError(this.errorHandler));
   }
 
-  errorHandler(error) {
+  signUp(email: string, password: string): Observable<any> {
+    const url = `${this.BASE_URL}username`;
+    return this.http
+      .post<User>(url, { email, password }, this.httpOptions)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  errorHandler(error): Observable<never> {
     let errorMessage = '';
-    if(error.error instanceof ErrorEvent) {
+    if (error.error instanceof ErrorEvent) {
       // Get client-side error
       errorMessage = error.error.message;
     } else {
@@ -45,5 +45,5 @@ export class AuthService {
     }
     window.alert(errorMessage);
     return throwError(errorMessage);
- }
+  }
 }

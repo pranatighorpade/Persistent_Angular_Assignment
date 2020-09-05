@@ -1,20 +1,10 @@
 <app-header></app-header>
 
-
-<!-- <span>Light</span>
-<label class="theme-switch" for="checkbox">
-        <input type="checkbox" id="checkbox" (click)="toggle()" >
-        <span class="slider round"></span>
-      </label>
-<span>Dark</span> -->
-
-
 <span>Light</span>
 <label class="theme-switch" for="checkbox">
-        <input type="checkbox" id="checkbox" [formControl]="darkTheme" >
-        <span class="slider round"></span>
-      </label>
+  <input type="checkbox" id="checkbox" [formControl]="darkTheme">
+  <span class="slider round"></span>
+</label>
 <span>Dark</span>
-
 
 <router-outlet></router-outlet>

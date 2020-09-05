@@ -1,31 +1,27 @@
 <div>
     <h1>My Products</h1>
-    <button type="button" *ngIf='isAuthenticated' [routerLink]="['/product/create']">Create new product</button>
+    <button type="button" area-label="Create Product" *ngIf='isAuthenticated' [routerLink]="['/product/create']">Create new product</button>
     <table>
         <thead>
             <tr>
-                <th>#</th>
-                <th>Product Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th *ngIf='isAuthenticated'>Action</th>
+                <th tabindex="0">Id</th>
+                <th tabindex="0">Product Name</th>
+                <th tabindex="0">Description</th>
+                <th tabindex="0">Price</th>
+                <th tabindex="0">Quantity</th>
+                <th tabindex="0" *ngIf='isAuthenticated'>Action</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let product of products">
-                <td>{{product.id}}</td>
-                <td>{{product.productName}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.price}}</td>
-                <td>{{product.quantity}}</td>
-                <td *ngIf='isAuthenticated'>
-
-                    <a href="#" [routerLink]="['/product/', product.id, 'view']" class="btn btn-info">View</a>
-                    <a href="#" [routerLink]="['/product/', product.id, 'edit']" class="btn btn-primary">Edit</a>
-                    <button type="button" (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
-
-
+                <td tabindex="0">{{product.id}}</td>
+                <td tabindex="0">{{product.productName}}</td>
+                <td tabindex="0">{{product.description}}</td>
+                <td tabindex="0">{{product.price}}</td>
+                <td tabindex="0">{{product.quantity}}</td>
+                <td tabindex="0" *ngIf='isAuthenticated'>
+                    <button type="button" area-label="Edit Product" tabindex="0"><a href="#" [routerLink]="['/product/', product.id, 'edit']" tabindex="0">Edit</a></button>
+                    <button type="button" area-label="Delete Product" (click)="deleteProduct(product.id)" tabindex="0">Delete</button>
                 </td>
             </tr>
         </tbody>

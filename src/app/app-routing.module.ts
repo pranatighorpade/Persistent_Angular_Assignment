@@ -3,15 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import {ProductViewComponent } from './products/product-view/product-view.component';
-import {ProductCreateComponent } from './products/product-create/product-create.component';
-import {ProductEditComponent } from './products/product-edit/product-edit.component';
+import { ProductCreateComponent } from './products/product-create/product-create.component';
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/product',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'product',
@@ -25,19 +24,15 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
   },
-  
-  { path: 'product/:productId/view', component: ProductViewComponent },
+
   { path: 'product/create', component: ProductCreateComponent },
-  { path: 'product/:productId/edit', component: ProductEditComponent } ,
-      // otherwise redirect to home
-   { path: '**', redirectTo: '' }
-   
+  { path: 'product/:productId/edit', component: ProductEditComponent },
+
+  { path: '**', redirectTo: '' },
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

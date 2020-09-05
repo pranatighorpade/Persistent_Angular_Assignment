@@ -1,4 +1,4 @@
-import { Product } from '../../models/product';
+import { Product } from '../models/product';
 
 export default class ProductState {
   Proucts: Array<Product>;

@@ -1,21 +1,18 @@
-.header {
-    overflow: hidden;
+:host {
+    display: block;
     padding: 4px 12px;
     background-color: var(--primary-color);
     color: var(--text-color);
-    padding: 20px 10px;
 }
 
-
-/* .header {
+.header {
     overflow: hidden;
     background-color: #00695f;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 20px 10px;
-} */
+}
 
-
-/* .header a {
+.header a {
     float: left;
     color: white;
     text-align: center;
@@ -24,7 +21,7 @@
     font-size: 18px;
     line-height: 25px;
     border-radius: 4px;
-} */
+}
 
 .header a:hover {
     background-color: #009688;

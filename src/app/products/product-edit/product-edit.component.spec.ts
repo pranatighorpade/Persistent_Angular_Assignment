@@ -1,4 +1,4 @@
-/* import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductEditComponent } from './product-edit.component';
 
@@ -8,9 +8,8 @@ describe('ProductEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductEditComponent ]
-    })
-    .compileComponents();
+      declarations: [ProductEditComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,4 +22,3 @@ describe('ProductEditComponent', () => {
     expect(component).toBeTruthy();
   });
 });
- */
