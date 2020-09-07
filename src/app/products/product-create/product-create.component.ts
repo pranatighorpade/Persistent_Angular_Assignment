@@ -31,10 +31,11 @@ export class ProductCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.fb.group({
+      id: [null],
       productName: [null, Validators.required],
       description: [null],
       price: [null, Validators.required],
-      quantity: [null],
+      category: [null],
       imgUrl: ['https://i.postimg.cc/Bb4Qf9Lw/electronic.png'],
     });
   }

@@ -14,7 +14,7 @@
                 <div class="product-price">Price &#x20b9;{{product.price}}</div>
                 <div class="product-links" *ngIf='isAuthenticated'>
                     <a [routerLink]="['/product/', product.id, 'edit']" tabindex="0" area-label="Edit Product">Edit</a>
-                    <a area-label="Delete Product" (click)="deleteProduct(product.id)" tabindex="0" area-label="Delete Product">Delete</a>
+                    <a class="delBtn" area-label="Delete Product" (click)="deleteProduct(product.id)" tabindex="0" area-label="Delete Product">Delete</a>
                 </div>
             </div>
         </div>

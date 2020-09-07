@@ -69,7 +69,7 @@ describe('ProductService', () => {
       expect(products.length).toBe(3);
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/product/');
+    const req = httpMock.expectOne('http://localhost:3000/products/');
 
     req.flush(mockProducts);
     httpMock.verify();
@@ -80,7 +80,7 @@ describe('ProductService', () => {
       expect(products.price).toBe(2500);
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/product/2');
+    const req = httpMock.expectOne('http://localhost:3000/products/2');
 
     req.flush(mockProducts);
     httpMock.verify();
@@ -99,7 +99,7 @@ describe('ProductService', () => {
     this.service.updateProduct(newProduct).subscribe((product) => {
       expect(product).toBeDefined();
       expect(product.length).toBe(1);
-      const req = httpMock.expectOne('http://localhost:3000/product/');
+      const req = httpMock.expectOne('http://localhost:3000/products/');
       req.flush(mockProducts);
       httpMock.verify();
     });
@@ -108,7 +108,7 @@ describe('ProductService', () => {
   it('delete: should return an empty object', () => {
     this.service.deleteProduct().subscribe((product) => {
       expect(product).toBeDefined();
-      const req = httpMock.expectOne('http://localhost:3000/product/');
+      const req = httpMock.expectOne('http://localhost:3000/products/');
       req.flush(mockProducts);
       httpMock.verify();
     });
@@ -128,7 +128,7 @@ describe('ProductService', () => {
       expect(product).toBeDefined();
       expect(product.length).toBe(1);
     });
-    const req = httpMock.expectOne('http://localhost:3000/product/');
+    const req = httpMock.expectOne('http://localhost:3000/products/');
     req.flush(mockProducts);
     httpMock.verify();
   });
