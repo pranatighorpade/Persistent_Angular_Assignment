@@ -20,6 +20,7 @@ export function reducer(state = initialState, action: All): State {
         isAuthenticated: true,
         user: {
           email: action.payload.email,
+          password: action.payload.password,
         },
         errorMessage: null,
       };
@@ -36,6 +37,7 @@ export function reducer(state = initialState, action: All): State {
         isAuthenticated: true,
         user: {
           email: action.payload.email,
+          password: action.payload.password,
         },
         errorMessage: null,
       };

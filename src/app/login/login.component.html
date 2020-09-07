@@ -15,13 +15,14 @@
             <p class="lblError" *ngIf="loginForm.get('email').hasError('required') && !loginForm.get('email').pristine">
                 Please provide your E-mail
             </p>
-            <p class="lblError" *ngIf="loginForm.get('email').hasError('email') && !loginForm.get('email').pristine">E-mail is Invalid</p>
+            <p class="lblError" *ngIf="loginForm.get('email').hasError('email') && !loginForm.get('email').pristine">
+                E-mail is Invalid</p>
         </div>
 
 
         <label for="password">Password: <span class="lblError">*</span></label>
         <div class="controls">
-            <input type="password" id="password" placeholder="Password" class="form-control" formControlName="password">
+            <input type="password" id="password" placeholder="Password" class="form-control" formControlName="password" autocomplete="on">
             <p class="lblError" *ngIf="loginForm.get('password').hasError('required') && !loginForm.get('password').pristine">
                 Password is Required
             </p>

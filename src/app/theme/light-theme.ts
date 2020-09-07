@@ -1,5 +1,6 @@
 export const lightTheme = {
-    'primary-color': '#fff',
-    'background-color': '#e5e5e5',
+    'primary-color': '#474747',
+    'background-color': '#eeeeee',
     'text-color': '#2d2d2d'
   };
+  

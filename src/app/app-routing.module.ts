@@ -7,28 +7,13 @@ import { ProductCreateComponent } from './products/product-create/product-create
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/product',
-    pathMatch: 'full',
-  },
-  {
-    path: 'product',
-    component: ProductListComponent,
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'signup',
-    component: SignupComponent,
-  },
-
+  { path: '',  redirectTo: '/product',    pathMatch: 'full' },
+  { path: 'product', component: ProductListComponent},
+  { path: 'login',   component: LoginComponent },
+  { path: 'signup',  component: SignupComponent },
   { path: 'product/create', component: ProductCreateComponent },
   { path: 'product/:productId/edit', component: ProductEditComponent },
-
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

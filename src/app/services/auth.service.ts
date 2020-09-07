@@ -3,13 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, Observable, throwError } from 'rxjs';
 import { User } from '../models/user';
 import { catchError } from 'rxjs/operators';
-import { Product } from '../products/models/product';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  readonly BASE_URL = 'http://localhost:3000/';
+  readonly BASE_URL = environment.baseURL;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

@@ -1,10 +1,6 @@
 <app-header></app-header>
-
-<span>Light</span>
-<label class="theme-switch" for="checkbox">
-  <input type="checkbox" id="checkbox" [formControl]="darkTheme">
-  <span class="slider round"></span>
-</label>
-<span>Dark</span>
-
+<div class="theming">
+    <a class="themeBtn"><label for="darkTheme" aria-checked="false" tabindex="0" area-label="checkBox">Dark Theme</label>
+        <input id="darkTheme" type="checkbox" [formControl]="darkTheme"></a>
+</div>
 <router-outlet></router-outlet>

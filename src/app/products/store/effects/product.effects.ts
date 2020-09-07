@@ -49,7 +49,6 @@ export class ProductEffects {
       return this.productService.createProduct(payload).pipe(
         map((data) => {
           if (data) {
-            window.alert('Product added Successfully!');
             return new AddProductSuccess(data);
           }
         })
@@ -65,7 +64,6 @@ export class ProductEffects {
       return this.productService.deleteProduct(payload).pipe(
         map((data) => {
           if (data) {
-            window.alert('Product deleted Successfully!');
             return new DeleteProductSuccess();
           }
         })
@@ -83,7 +81,6 @@ export class ProductEffects {
         .pipe(
           map((data) => {
             if (data) {
-              window.alert('Product updated Successfully!');
               return new UpdateProductSuccess(data);
             }
           })

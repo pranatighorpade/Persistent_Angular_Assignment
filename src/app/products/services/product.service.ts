@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Product } from '../models/product';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  readonly jsonApiServer = 'http://localhost:3000';
+  readonly jsonApiServer = environment.baseURL;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -21,7 +22,7 @@ export class ProductService {
   createProduct(product: Product): Observable<Product> {
     return this.httpClient
       .post<Product>(
-        this.jsonApiServer + '/products/',
+        this.jsonApiServer + 'products/',
         JSON.stringify(product),
         this.httpOptions
       )
@@ -30,20 +31,20 @@ export class ProductService {
 
   getById(id: number): Observable<Product> {
     return this.httpClient
-      .get<Product>(this.jsonApiServer + '/products/' + id)
+      .get<Product>(this.jsonApiServer + 'products/' + id)
       .pipe(catchError(this.errorHandler));
   }
 
   getAllProducts(): Observable<Product[]> {
     return this.httpClient
-      .get<Product[]>(this.jsonApiServer + '/products/')
+      .get<Product[]>(this.jsonApiServer + 'products/')
       .pipe(catchError(this.errorHandler));
   }
 
   updateProduct(id: number, product: Product): Observable<Product> {
     return this.httpClient
       .put<Product>(
-        this.jsonApiServer + '/products/' + id,
+        this.jsonApiServer + 'products/' + id,
         JSON.stringify(product),
         this.httpOptions
       )
@@ -52,7 +53,7 @@ export class ProductService {
 
   deleteProduct(id: number): Observable<Product> {
     return this.httpClient
-      .delete<Product>(this.jsonApiServer + '/products/' + id, this.httpOptions)
+      .delete<Product>(this.jsonApiServer + 'products/' + id, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 

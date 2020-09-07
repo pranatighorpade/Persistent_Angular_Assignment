@@ -1,0 +1,56 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "productName": "JBL Headphones ",
+      "description": "The new JBL C100SI is a dynamic, ultra-lightweight in-ear headphone",
+      "price": "599",
+      "imgUrl": "https://i.postimg.cc/qB29NkJL/headphone.jpg",
+      "category": "Mobile and Accessories"
+    },
+    {
+      "id": 2,
+      "productName": "LED TV",
+      "description": "Mi TV 4X 125.7 cm (50 Inches) 4K Ultra HD Android LED TV (Black)",
+      "price": "2500",
+      "imgUrl": "https://i.postimg.cc/FRGgQGdN/81t2-A6uhm4-L-SL1500.jpg",
+      "category": "Home Appliances"
+    },
+    {
+      "id": 3,
+      "productName": "Speaker",
+      "description": "Sony SRS-XB12 Wireless Extra Bass Bluetooth Speaker",
+      "price": "4000",
+      "imgUrl": "https://i.postimg.cc/NFhqWFgy/speaker.jpg",
+      "category": "Audio Devices"
+    },
+    {
+      "id": 4,
+      "productName": "Keyboard",
+      "description": "HP 100 Wired USB Keyboard",
+      "price": "1200",
+      "imgUrl": "https://i.postimg.cc/YCQkk14p/81-PLqxtr-J3-L-SX466-keyboard.jpg",
+      "category": "Computer and Accessories"
+    }
+  ],
+  "username": [
+    {
+      "id": 1,
+      "name": "test",
+      "email": "tavisca@gmail.com",
+      "password": "Tavisca@123"
+    },
+    {
+      "id": 2,
+      "name": "shri",
+      "email": "test@gmail.com",
+      "password": "test"
+    },
+    {
+      "id": 3,
+      "name": "user",
+      "email": "tcs@gmail.com",
+      "password": "Tcs@123"
+    }
+  ]
+}

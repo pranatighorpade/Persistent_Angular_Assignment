@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { ProductModule } from '../app/products/product.module';
 import { ProductEffects } from './products/store/effects/product.effects';
 import { HeaderComponent } from './header/header.component';
+import { ThemeService } from './theme/theme.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { HeaderComponent } from './header/header.component';
     EffectsModule.forRoot([AuthEffects, ProductEffects]),
   ],
 
-  providers: [AuthService],
+  providers: [AuthService, ThemeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

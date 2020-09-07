@@ -9,29 +9,35 @@ import { of } from 'rxjs';
 
 const mockProducts = [
   {
+    id: 1,
     productName: 'JBL Headphones ',
     description:
       'The new JBL C100SI is a dynamic, ultra-lightweight in-ear headphone',
-    price: '599cdfg',
-    quantity: 44,
-    id: 1,
+    price: 599,
+    imgUrl: 'https://i.postimg.cc/qB29NkJL/headphone.jpg',
+    category: 'Mobile and Accessories',
   },
   {
-    productName: 'Samsung Galaxy Mobile Cover',
-    description:
-      'Mobile Skin are made of high quality Premium Vinyl adhesive skin. ',
-    price: 399,
-    quantity: 3,
     id: 2,
+    productName: 'LED TV',
+    description:
+      'Mi TV 4X 125.7 cm (50 Inches) 4K Ultra HD Android LED TV (Black)',
+    price: 2500,
+    imgUrl: 'https://i.postimg.cc/FRGgQGdN/81t2-A6uhm4-L-SL1500.jpg',
+    category: 'Home Appliances',
   },
   {
-    productName: 'abc',
-    description: 'adfsgdg',
-    price: '2345',
-    quantity: '45',
     id: 3,
+    productName: 'Speaker',
+    description:
+      'Sony SRS-XB12 Wireless Extra Bass Bluetooth Speaker, 16 Hours Battery Life',
+    price: 4000,
+    imgUrl: 'https://i.postimg.cc/NFhqWFgy/speaker.jpg',
+    category: 'Audio Devices',
   },
 ];
+
+//const updateProduct=[]
 
 describe('ProductService', () => {
   let service: ProductService;
@@ -47,32 +53,86 @@ describe('ProductService', () => {
 
   beforeEach(inject(
     [ProductService, HttpTestingController],
-    (serviceObj, httpMockObj) => {
-      service = serviceObj;
-      httpMock = httpMockObj;
+    (_service, _httpMock) => {
+      service = _service;
+      httpMock = _httpMock;
     }
   ));
 
-  it('getAllProducts: should return a  list', (done) => {
-    service.getAllProducts().subscribe((airports) => {
-      expect(airports.length).toBe(3);
-      done();
+  it('should be created', () => {
+    const service1 = TestBed.inject(ProductService);
+    expect(service1).toBeTruthy();
+  });
+
+  it('getAllProducts: should return a product list', () => {
+    this.service.getAllProducts().subscribe((products) => {
+      expect(products.length).toBe(3);
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/products');
+    const req = httpMock.expectOne('http://localhost:3000/product/');
 
     req.flush(mockProducts);
     httpMock.verify();
   });
 
-  it('getById: should the selected airport', (done) => {
-    service.getById(1).subscribe((airport) => {
-      expect(airport.id).toBe('JBL Headphones');
+  it('getById: should return a product by given id', () => {
+    this.service.getById(2).subscribe((products) => {
+      expect(products.price).toBe(2500);
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/products');
+    const req = httpMock.expectOne('http://localhost:3000/product/2');
 
     req.flush(mockProducts);
     httpMock.verify();
   });
+
+  it('update: should update a product and return the new product list', () => {
+    const newProduct = {
+      id: 2,
+      productName: 'LED TV',
+      description:
+        'Mi TV 4X 125.7 cm (50 Inches) 4K Ultra HD Android LED TV (Black)',
+      price: 2500,
+      imgUrl: 'https://i.postimg.cc/FRGgQGdN/81t2-A6uhm4-L-SL1500.jpg',
+      category: 'Home Appliances',
+    };
+    this.service.updateProduct(newProduct).subscribe((product) => {
+      expect(product).toBeDefined();
+      expect(product.length).toBe(1);
+      const req = httpMock.expectOne('http://localhost:3000/product/');
+      req.flush(mockProducts);
+      httpMock.verify();
+    });
+  });
+
+  it('delete: should return an empty object', () => {
+    this.service.deleteProduct().subscribe((product) => {
+      expect(product).toBeDefined();
+      const req = httpMock.expectOne('http://localhost:3000/product/');
+      req.flush(mockProducts);
+      httpMock.verify();
+    });
+  });
+
+  it('create product: should create a product ', () => {
+    const newProduct = {
+      id: 2,
+      productName: 'LED TV',
+      description:
+        'Mi TV 4X 125.7 cm (50 Inches) 4K Ultra HD Android LED TV (Black)',
+      price: 2500,
+      imgUrl: 'https://i.postimg.cc/FRGgQGdN/81t2-A6uhm4-L-SL1500.jpg',
+      category: 'Home Appliances',
+    };
+    this.service.createProduct(newProduct).subscribe((product) => {
+      expect(product).toBeDefined();
+      expect(product.length).toBe(1);
+    });
+    const req = httpMock.expectOne('http://localhost:3000/product/');
+    req.flush(mockProducts);
+    httpMock.verify();
+  });
+
+
 });
+

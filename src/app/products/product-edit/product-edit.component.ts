@@ -36,19 +36,19 @@ export class ProductEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['productId'];
-    this.productService.getById(this.id).subscribe((data: Product) => {
-      this.product = data;
-    });
+    this.id = this.route.snapshot.params.productId;
 
     this.editform = this.fb.group({
-      productName: [''],
-      description: [''],
-      price: [''],
-      quantity: [''],
+      id: [null],
+      productName: [null, Validators.required],
+      description: [null],
+      price: [null, Validators.required],
+      category: [null],
+      imgUrl: ['https://i.postimg.cc/Bb4Qf9Lw/electronic.png'],
     });
 
     this.productService.getById(this.id).subscribe((data) => {
+      console.log(data);
       this.editform.setValue(data);
     });
   }

@@ -1,27 +1,39 @@
 <div class="container">
-    <h1>Update Product</h1>
 
-    <a href="#" routerLink="/product" class="btn btn-primary">Back</a>
-
-    <form [formGroup]="editform" (ngSubmit)="submit()">
-
-        <div class="form-group">
-            <label>Name</label>
-            <input type="text" formControlName="productName" class="form-control" maxlength="20">
+    <form class="form" [formGroup]="editform" (ngSubmit)="submit()" novalidate>
+        <h2 class="formLabel">Update Product</h2>
+        <label></label>
+        <div *ngIf="errorMessage" class="errMsg">
+            {{errorMessage}}
         </div>
-        <div class="form-group">
-            <label>Description</label>
-            <textarea class="form-control" formControlName="description" rows="3" maxlength="50"></textarea>
+        <label for="productName">Product Name </label>
+        <div class="controls">
+            <input type="text" id="productName" name="productName" placeholder="Product Name" class="form-control" formControlName="productName">
+            <p class="lblError" *ngIf="editform.get('productName').hasError('required') && !editform.get('productName').pristine">
+                Please provide product name
+            </p>
         </div>
-        <div class="form-group">
-            <label>Price</label>
-            <input type="text" formControlName="price" class="form-control">
+        <label for="description">Description: </label>
+        <div class="controls">
+            <textarea id="description" name="description" placeholder="Description" class="form-control" formControlName="description"></textarea>
         </div>
-        <div class="form-group">
-            <label>Quantity</label>
-            <input type="text" formControlName="quantity" class="form-control">
+        <label for="Price">Price: </label>
+        <div class="controls">
+            <input type="number" id="price" name="price" placeholder="Price" class="form-control" formControlName="price">
+            <p class="lblError" *ngIf="editform.get('price').hasError('required') && !editform.get('price').pristine">
+                Please provide Price
+            </p>
         </div>
-
-        <button class="btn btn-primary" type="submit" area-label="Submit">Update</button>
+        <label for="category">Category:</label>
+        <div class="controls">
+            <input type="text" id="category" name="category" placeholder="Category" class="form-control" formControlName="category">
+        </div>
+        <label for="Image URL">Image Url: </label>
+        <div class="controls">
+            <input type="password" id="imgUrl" name="imgUrl" placeholder="Image Url" class="form-control" formControlName="imgUrl">
+        </div>
+        <label><button class="cancelbtn" [routerLink]="['/']" aria-label="Cancel">Cancel</button></label>
+        <button type="submit" [disabled]='editform.invalid' aria-label="Update Product"> Update Product
+        </button>
     </form>
 </div>

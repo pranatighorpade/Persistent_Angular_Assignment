@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
@@ -13,7 +13,6 @@ import { AppState, selectProductState } from 'src/app/store/app.states';
   templateUrl: './product-create.component.html',
   styleUrls: ['./product-create.component.scss'],
 })
-
 export class ProductCreateComponent implements OnInit {
   productForm: FormGroup;
   product: Product;
@@ -32,10 +31,11 @@ export class ProductCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.fb.group({
-      productName: [''],
-      description: [''],
-      price: [''],
-      quantity: [''],
+      productName: [null, Validators.required],
+      description: [null],
+      price: [null, Validators.required],
+      quantity: [null],
+      imgUrl: ['https://i.postimg.cc/Bb4Qf9Lw/electronic.png'],
     });
   }
 
