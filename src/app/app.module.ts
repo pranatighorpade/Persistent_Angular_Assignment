@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+import { LoginSignupComponent } from './login-signup/login-signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { AuthEffects } from './store/effects/auth.effects';
@@ -17,12 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { ThemeService } from './theme/theme.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    SignupComponent,
-    HeaderComponent,
-  ],
+  declarations: [AppComponent, LoginSignupComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -37,8 +37,6 @@ const mockProducts = [
   },
 ];
 
-//const updateProduct=[]
-
 describe('ProductService', () => {
   let service: ProductService;
   let httpMock: HttpTestingController;
@@ -53,9 +51,9 @@ describe('ProductService', () => {
 
   beforeEach(inject(
     [ProductService, HttpTestingController],
-    (_service, _httpMock) => {
-      service = _service;
-      httpMock = _httpMock;
+    (serviceName, httpMockName) => {
+      service = serviceName;
+      httpMock = httpMockName;
     }
   ));
 

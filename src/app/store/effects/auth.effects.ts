@@ -45,7 +45,6 @@ export class AuthEffects {
             )
             .pipe(
               catchError((error) => {
-                console.log(error);
                 return of(new LogInFailure({ error }));
               })
             );
@@ -83,7 +82,6 @@ export class AuthEffects {
             )
             .pipe(
               catchError((error) => {
-                console.log(error);
                 return of(new SignUpFailure({ error }));
               })
             );

@@ -7,10 +7,10 @@ import { ThemeService } from '../app/theme/theme.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-
 export class AppComponent {
   title = 'electronicsProductManagement';
   darkTheme = new FormControl(false);
+
   constructor(private themeService: ThemeService) {
     this.darkTheme.valueChanges.subscribe((value) => {
       if (value) {

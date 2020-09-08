@@ -14,7 +14,7 @@ form input {
 }
 
 form button {
-    background: #47d6b1;
+    background: teal;
     width: 40%;
     border: 0;
     color: white;
@@ -25,7 +25,7 @@ form button {
 
 form .cancelbtn {
     color: white;
-    width: 100%;
+    width: 50%;
     padding: 0.7em;
     background-color: #DC143C;
 }
@@ -37,6 +37,7 @@ label {
 
 .lblError {
     color: red;
+    font-size: 13px;
 }
 
 input {
@@ -61,7 +62,8 @@ input:focus {
     color: #ba000d;
     background-color: #ff7961;
     border: 1px solid #f44336;
-    text-align: center;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 form button:disabled {
@@ -69,19 +71,27 @@ form button:disabled {
     cursor: no-drop;
 }
 
+.submitBtn {
+    margin-top: 7px;
+    height: 37px;
+}
+
 @media (min-width: 400px) {
     form {
-        grid-template-columns: 120px 1fr;
+        grid-template-columns: 250px 1fr;
         grid-gap: 16px;
+        text-justify: auto;
     }
     label {
         text-align: right;
         grid-column: 1 / 2;
+        font-size: 15px;
     }
     .formLabel {
         grid-column: 2/4;
         color: black;
         font-weight: 600;
         margin: 0;
+        text-align: left;
     }
 }

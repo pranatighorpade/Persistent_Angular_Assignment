@@ -3,4 +3,3 @@ export const lightTheme = {
     'background-color': '#eeeeee',
     'text-color': '#2d2d2d'
   };
-  

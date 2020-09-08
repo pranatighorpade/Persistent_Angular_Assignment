@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductListComponent } from './product-list.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ProductService } from '../services/product.service';
+import { provideMockStore } from '@ngrx/store/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -10,6 +12,8 @@ describe('ProductListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ProductListComponent],
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      providers: [ProductService, provideMockStore()],
     }).compileComponents();
   }));
 

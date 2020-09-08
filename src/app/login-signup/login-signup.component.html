@@ -2,7 +2,7 @@
 
     <form class="form" [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
 
-        <h2 class="formLabel">Login</h2>
+        <h2 class="formLabel"><span *ngIf="viewLogin">Login</span> <span *ngIf="!viewLogin">Create your account</span></h2>
         <label></label>
 
         <div *ngIf="errorMessage" class="errMsg">
@@ -26,15 +26,22 @@
             <p class="lblError" *ngIf="loginForm.get('password').hasError('required') && !loginForm.get('password').pristine">
                 Password is Required
             </p>
+            <p class="lblError" *ngIf="loginForm.get('password').hasError('minlength') && !loginForm.get('password').pristine">
+                Password must be atleast six character long
+
+            </p>
         </div>
 
         <label><button class="cancelbtn" [routerLink]="['/']" aria-label="Cancel">Cancel</button></label>
-        <button type="submit" [disabled]='loginForm.invalid' aria-label="Login"> Login
+        <button *ngIf="viewLogin" class="submitBtn" type="submit" [disabled]='loginForm.invalid' aria-label="Login"> Login
+        </button>
+        <button *ngIf="!viewLogin" class="submitBtn" type="submit" [disabled]='loginForm.invalid' area-label="Sign UP" tabindex="0"> Sign Up
         </button>
 
     </form>
     <div class="accountExist">
-        <h3>Don't have an account? <a [routerLink]="['/signup']">Sign Up here</a></h3>
+        <span *ngIf="viewLogin"><h3>Don't have an account? <a [routerLink]="['/signup']">Sign Up here</a></h3></span>
+        <span *ngIf="!viewLogin"><h3>Already have an account? <a [routerLink]="['/login']" tabindex="0">Login here</a></h3></span>
     </div>
 
 </div>

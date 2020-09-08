@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginSignupComponent } from './login-signup/login-signup.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { ProductCreateComponent } from './products/product-create/product-create.component';
-import { ProductEditComponent } from './products/product-edit/product-edit.component';
+import { ProductCreateEditComponent } from './products/product-create-edit/product-create-edit.component';
+
 
 const routes: Routes = [
   { path: '',  redirectTo: '/product',    pathMatch: 'full' },
   { path: 'product', component: ProductListComponent},
-  { path: 'login',   component: LoginComponent },
-  { path: 'signup',  component: SignupComponent },
-  { path: 'product/create', component: ProductCreateComponent },
-  { path: 'product/:productId/edit', component: ProductEditComponent },
+  { path: 'login',   component: LoginSignupComponent , data: { isLogin: true } },
+  { path: 'signup',  component: LoginSignupComponent },
+  { path: 'product/create', component: ProductCreateEditComponent },
+  { path: 'product/:productId/edit', component: ProductCreateEditComponent },
   { path: '**', redirectTo: '' }
 ];
 

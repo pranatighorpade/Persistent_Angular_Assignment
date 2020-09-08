@@ -44,7 +44,9 @@ export class ProductListComponent implements OnInit {
   }
 
   deleteProduct(id): void {
-    this.store.dispatch(new DeleteProduct(id));
-    this.store.dispatch(new ListProducts());
+    if (window.confirm('Do you really want to delete the product?')) {
+      this.store.dispatch(new DeleteProduct(id));
+      this.store.dispatch(new ListProducts());
+    }
   }
 }

@@ -4,15 +4,15 @@ import { lightTheme } from '../theme/light-theme';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  toggleDark() {
+  toggleDark(): void {
     this.setTheme(darkTheme);
   }
 
-  toggleLight() {
+  toggleLight(): void {
     this.setTheme(lightTheme);
   }
 
-  public setTheme(theme: {}) {
+  public setTheme(theme: {}): void {
     Object.keys(theme).forEach((k) =>
       document.documentElement.style.setProperty(`--${k}`, theme[k])
     );

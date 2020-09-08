@@ -7,13 +7,12 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 10px 2px;
+    margin: 10px 15px;
     cursor: pointer;
 }
 
 .product-card {
-    margin: 0 -5px;
-    margin-left: 5px;
+    margin: 5px -5px 0px 5px;
 }
 
 .product-card:after {
@@ -112,13 +111,9 @@
     width: 20%;
     min-height: 400px;
     height: auto;
-    margin: 0 10px;
+    margin: 10PX;
     border: 1px solid #b3b3b3;
-    margin-top: 10px;
 }
-
-
-/* Responsive columns */
 
 @media screen and (max-width: 600px) {
     .column {
@@ -127,9 +122,6 @@
         margin-bottom: 20px;
     }
 }
-
-
-/* Style the counter cards */
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
